@@ -82,11 +82,11 @@ def compare_intent_handler(intent_request, session_attributes):
     where_clause += "   AND (LOWER(" + ihbot.DIMENSIONS[slot_values['dimension']]['column'] + ") LIKE LOWER('%" + the_1st_dimension_value + "%') OR "
     where_clause +=         "LOWER(" + ihbot.DIMENSIONS[slot_values['dimension']]['column'] + ") LIKE LOWER('%" + the_2nd_dimension_value + "%')) " 
 
-    logger.debug('<<IHBot>> compare_averageprice_intent_request - building WHERE clause') 
+    logger.debug('<<IHBot>> compare_intent_request - building WHERE clause') 
     for dimension in ihbot.DIMENSIONS:
         slot_key = ihbot.DIMENSIONS.get(dimension).get('slot')
         if slot_values[slot_key] is not None:
-            logger.debug('<<IHBot>> compare_averageprice_intent_request - calling userexits.pre_process_query_value(%s, %s)', 
+            logger.debug('<<IHBot>> compare_intent_request - calling userexits.pre_process_query_value(%s, %s)', 
                          slot_key, slot_values[slot_key])  
             value = userexits.pre_process_query_value(slot_key, slot_values[slot_key])
             where_clause += COMPARE_WHERE.format(ihbot.DIMENSIONS.get(dimension).get('column'), value)
@@ -107,7 +107,7 @@ def compare_intent_handler(intent_request, session_attributes):
     counter = 0
     for dimension in ihbot.DIMENSIONS:
         slot_key = ihbot.DIMENSIONS[dimension].get('slot')
-        logger.debug('<<IHBot>> pre compare_averageprice_formatter[%s] = %s', slot_key, slot_values.get(slot_key))
+        logger.debug('<<IHBot>> pre compare_formatter[%s] = %s', slot_key, slot_values.get(slot_key))
         if slot_values.get(slot_key) is not None:
             # the DIMENSION_FORMATTERS perform a post-process function and then format the output
             
@@ -118,7 +118,7 @@ def compare_intent_handler(intent_request, session_attributes):
                 else:
                     response_string += ', ' + userexits.DIMENSION_FORMATTERS[slot_key]['format'].lower().format(output_text)
                 counter += 1
-                logger.debug('<<IHBot>> compare_averageprice_formatter[%s] = %s', slot_key, output_text)
+                logger.debug('<<IHBot>> compare_formatter[%s] = %s', slot_key, output_text)
 
     if (result_count == 0):
         if len(response_string) > 0:
