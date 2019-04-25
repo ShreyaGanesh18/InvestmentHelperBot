@@ -1,6 +1,6 @@
 {
         "name": "Goodbye_Intent",
-        "description": "Let BIBot know you're done",
+        "description": "InvestorHelperBot understands that you want to end conversation",
         "conclusionStatement": {
           "messages": [
             {

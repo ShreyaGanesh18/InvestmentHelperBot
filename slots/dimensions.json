@@ -1,48 +1,35 @@
 {
     "name": "dimensions", 
-    "description": "List of dimensions in ticket database",
+    "description": "List of dimensions in Investments database",
     "valueSelectionStrategy": "TOP_RESOLUTION", 
     "enumerationValues": [
         {
+            
             "synonyms": [
-                "month"
+                
+                "firms"
             ], 
-            "value": "months"
+            "value": "companies"
         }, 
         {
             "synonyms": [
-                "city"
+                "securities"
             ], 
-            "value": "cities"
-        }, 
+            "value": "stocks"
+        },
         {
             "synonyms": [
-                "stadiums", 
-                "locations", 
-                "venue"
+                "days"
             ], 
-            "value": "venues"
-        }, 
+            "value": "dates"
+        },
         {
             "synonyms": [
-                "category"
+                "Type of investment"
             ], 
-            "value": "categories"
-        }, 
-        {
-            "synonyms": [
-                "shows", 
-                "concerts", 
-                "event"
-            ], 
-            "value": "events"
-        }, 
-        {
-            "synonyms": [
-                "state"
-            ], 
-            "value": "states"
-        }
+            "value": "security types"
+        },
+        
     ]
 }
 

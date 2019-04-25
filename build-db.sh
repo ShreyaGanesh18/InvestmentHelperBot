@@ -20,64 +20,38 @@ echo '$ATHENA_BUCKET_REGION' "= $ATHENA_BUCKET_REGION"
 echo '$ATHENA_DB_DESCRIPTION' "= $ATHENA_DB_DESCRIPTION"
 echo
 
-# Create TICKIT database
+# Create INVESTMENT database
 echo "Creating Athena database $ATHENA_DB"
 aws glue create-database --database-input "Name=$ATHENA_DB,Description=$ATHENA_DB_DESCRIPTION" >/dev/null
 
-# Create TICKIT users table in Athena
-echo "Creating users table..."
+# Create INVESTMENT allfin table in Athena
+echo "Creating allfin table..."
 aws athena start-query-execution \
-    --query-string "create external table users (user_id INT, username STRING, firstname STRING, lastname STRING, city STRING, state STRING, email STRING, phone STRING, like_sports BOOLEAN, liketheatre BOOLEAN, likeconcerts BOOLEAN, likejazz BOOLEAN, likeclassical BOOLEAN, likeopera BOOLEAN, likerock BOOLEAN, likevegas BOOLEAN, likebroadway BOOLEAN, likemusicals BOOLEAN) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/users';" \
+    --query-string "create external table allfin (exchange_date DATE,  "Aarti India" DECIMAL(8,2), "Aban Offshore" DECIMAL(8,2), "ABB India" DECIMAL(8,2), "Abbott India" DECIMAL(8,2), "ACC" DECIMAL(8,2), "Adani Enterpris" DECIMAL(8,2), "Adani Ports" DECIMAL(8,2), "Adani Power" DECIMAL(8,2), "Adani Trans" DECIMAL(8,2), "Aditya Birla F" DECIMAL(8,2), "Advanced Enzyme" DECIMAL(8,2), "Aegis Logistics" DECIMAL(8,2), "AIA Engineering" DECIMAL(8,2), "Ajanta Pharma" DECIMAL(8,2), "Akzo Nobel" DECIMAL(8,2), "Alembic Pharma" DECIMAL(8,2), "Alkem Lab" DECIMAL(8,2), "Allahabad Bank" DECIMAL(8,2), "Allcargo" DECIMAL(8,2), "Amara Raja Batt" DECIMAL(8,2), "Ambuja Cements" DECIMAL(8,2), "Andhra Bank" DECIMAL(8,2), "Apar Ind" DECIMAL(8,2), "APL Apollo" DECIMAL(8,2), "Apollo Hospital" DECIMAL(8,2), "Apollo Tyres" DECIMAL(8,2), "Arvind" DECIMAL(8,2), "Asahi India" DECIMAL(8,2), "Ashok Leyland" DECIMAL(8,2), "Ashoka Buildcon" DECIMAL(8,2), "Asian Paints" DECIMAL(8,2), "Astra Microwave" DECIMAL(8,2), "Astral Poly Tec" DECIMAL(8,2), "AstraZeneca" DECIMAL(8,2), "Atul" DECIMAL(8,2), "Aurobindo Pharm" DECIMAL(8,2), "Avanti Feeds" DECIMAL(8,2), "Avenue Supermar" DECIMAL(8,2), "Axis Bank" DECIMAL(8,2), "Bajaj Auto" DECIMAL(8,2), "Bajaj Consumer" DECIMAL(8,2), "Bajaj Electric" DECIMAL(8,2), "Bajaj Finance" DECIMAL(8,2), "Bajaj Finserv" DECIMAL(8,2), "Bajaj Hindustha" DECIMAL(8,2), "Bajaj Holdings" DECIMAL(8,2), "Balkrishna Ind" DECIMAL(8,2), "Balmer Lawrie" DECIMAL(8,2), "Balrampur Chini" DECIMAL(8,2), "Bank of Baroda" DECIMAL(8,2), "Bank of India" DECIMAL(8,2), "Bank of Mah" DECIMAL(8,2), "BASF" DECIMAL(8,2), "Bata India" DECIMAL(8,2), "Bayer CropScien" DECIMAL(8,2), "BEML" DECIMAL(8,2), "Berger Paints" DECIMAL(8,2), "BF Utilities" DECIMAL(8,2), "Bharat Elec" DECIMAL(8,2), "Bharat Fin" DECIMAL(8,2), "Bharat Forge" DECIMAL(8,2), "Bharti Airtel" DECIMAL(8,2), "Bharti Infratel" DECIMAL(8,2), "BHEL" DECIMAL(8,2), "Biocon" DECIMAL(8,2), "Birla Corp" DECIMAL(8,2), "Birlasoft" DECIMAL(8,2), "Bliss GVS" DECIMAL(8,2), "Blue Dart" DECIMAL(8,2), "Blue Star" DECIMAL(8,2), "Bombay Burmah" DECIMAL(8,2), "Bombay Dyeing" DECIMAL(8,2), "Bosch" DECIMAL(8,2), "BPCL" DECIMAL(8,2), "Britannia" DECIMAL(8,2), "Cadila Health" DECIMAL(8,2), "Can Fin Homes" DECIMAL(8,2), "Canara Bank" DECIMAL(8,2), "Capital First" DECIMAL(8,2), "Caplin Labs" DECIMAL(8,2), "Carborundum" DECIMAL(8,2), "CARE" DECIMAL(8,2), "Castrol" DECIMAL(8,2), "CCL Products" DECIMAL(8,2), "Ceat" DECIMAL(8,2), "Central Bank" DECIMAL(8,2), "Century" DECIMAL(8,2), "CenturyPlyboard" DECIMAL(8,2), "Cera Sanitary" DECIMAL(8,2), "CESC" DECIMAL(8,2), "CG Consumer" DECIMAL(8,2), "CG Power" DECIMAL(8,2), "Chambal Fert" DECIMAL(8,2), "Chennai Petro" DECIMAL(8,2), "Cholamandalam" DECIMAL(8,2), "Cipla" DECIMAL(8,2), "City Union Bank" DECIMAL(8,2), "Coal India" DECIMAL(8,2), "Coffee Day" DECIMAL(8,2), "Colgate" DECIMAL(8,2), "Container Corp" DECIMAL(8,2), "Coromandel Int" DECIMAL(8,2), "Corporation Bk" DECIMAL(8,2), "Cox & Kings" DECIMAL(8,2), "CRISIL" DECIMAL(8,2), "Cummins" DECIMAL(8,2), "Cyient" DECIMAL(8,2), "Dabur India" DECIMAL(8,2), "Dalmia Bharat" DECIMAL(8,2), "DB Corp" DECIMAL(8,2), "DCB Bank" DECIMAL(8,2), "DCM Shriram" DECIMAL(8,2), "Deepak Fert" DECIMAL(8,2), "Delta Corp" DECIMAL(8,2), "Den Networks" DECIMAL(8,2), "Dena Bank" DECIMAL(8,2), "Dewan Housing" DECIMAL(8,2), "Dhanuka Agritec" DECIMAL(8,2), "Dilip Buildcon" DECIMAL(8,2), "Dish TV" DECIMAL(8,2), "Divis Labs" DECIMAL(8,2), "DLF" DECIMAL(8,2), "Dr Lal PathLab" DECIMAL(8,2), "Dr Reddys Labs" DECIMAL(8,2), "eClerx Services" DECIMAL(8,2), "Edelweiss" DECIMAL(8,2), "Eicher Motors" DECIMAL(8,2), "EID Parry" DECIMAL(8,2), "EIH" DECIMAL(8,2), "Elgi Equipments" DECIMAL(8,2), "Emami" DECIMAL(8,2), "Endurance Techn" DECIMAL(8,2), "EngineersInd" DECIMAL(8,2), "Ent Network Ind" DECIMAL(8,2), "Equitas Holding" DECIMAL(8,2), "Eros Intl" DECIMAL(8,2), "Escorts" DECIMAL(8,2), "Essel Propack" DECIMAL(8,2), "Eveready Ind" DECIMAL(8,2), "Exide Ind" DECIMAL(8,2), "FDC" DECIMAL(8,2), "Federal Bank" DECIMAL(8,2), "Finolex Cables" DECIMAL(8,2), "Finolex Ind" DECIMAL(8,2), "Firstsource Sol" DECIMAL(8,2), "Force Motors" DECIMAL(8,2), "Fortis Health" DECIMAL(8,2), "Future Consumer" DECIMAL(8,2), "Future Life" DECIMAL(8,2), "Future Retail" DECIMAL(8,2), "GAIL" DECIMAL(8,2), "Gateway Distri" DECIMAL(8,2), "Gati" DECIMAL(8,2), "Gayatri Project" DECIMAL(8,2), "GE Power India" DECIMAL(8,2), "GE Shipping" DECIMAL(8,2), "GE T&D India" DECIMAL(8,2), "GIC Housing Fin" DECIMAL(8,2), "Gillette India" DECIMAL(8,2), "GlaxoSmith Con" DECIMAL(8,2), "GlaxoSmithKline" DECIMAL(8,2), "Glenmark" DECIMAL(8,2), "GMR Infra" DECIMAL(8,2), "GNFC" DECIMAL(8,2), "Godfrey Phillip" DECIMAL(8,2), "Godrej Consumer" DECIMAL(8,2), "Godrej Ind" DECIMAL(8,2), "Godrej Prop" DECIMAL(8,2), "Granules India" DECIMAL(8,2), "Grasim" DECIMAL(8,2), "Greaves Cotton" DECIMAL(8,2), "Greenply Ind" DECIMAL(8,2), "Grindwell Norto" DECIMAL(8,2), "GRUH Finance" DECIMAL(8,2), "GSFC" DECIMAL(8,2), "Guj Alkali" DECIMAL(8,2), "Guj Flourochem" DECIMAL(8,2), "Guj Heavy Chem" DECIMAL(8,2), "Guj Mineral" DECIMAL(8,2), "Guj State Petro" DECIMAL(8,2), "Gujarat Gas" DECIMAL(8,2), "Gujarat Pipavav" DECIMAL(8,2), "Gulf Oil Lubric" DECIMAL(8,2), "Hathway Cable" DECIMAL(8,2), "Hatsun Agro" DECIMAL(8,2), "Havells India" DECIMAL(8,2), "HCL Info" DECIMAL(8,2), "HCL Tech" DECIMAL(8,2), "HDFC" DECIMAL(8,2), "HDFC Bank" DECIMAL(8,2), "HDIL" DECIMAL(8,2), "Heidelberg Cem" DECIMAL(8,2), "Heritage Foods" DECIMAL(8,2), "Hero Motocorp" DECIMAL(8,2), "Hexaware Tech" DECIMAL(8,2), "HFCL" DECIMAL(8,2), "Himatsingka Sei" DECIMAL(8,2), "Hind Constr" DECIMAL(8,2), "Hind Copper" DECIMAL(8,2), "Hind Zinc" DECIMAL(8,2), "Hindalco" DECIMAL(8,2), "Honeywell Autom" DECIMAL(8,2), "HPCL" DECIMAL(8,2), "HSIL" DECIMAL(8,2), "HUL" DECIMAL(8,2), "ICICI Bank" DECIMAL(8,2), "ICICI Prudentia" DECIMAL(8,2), "ICRA" DECIMAL(8,2), "IDBI Bank" DECIMAL(8,2), "IDFC" DECIMAL(8,2), "IDFC First Bank" DECIMAL(8,2), "IFCI" DECIMAL(8,2), "IGL" DECIMAL(8,2), "IIFL Holdings" DECIMAL(8,2), "ILandFS Trans" DECIMAL(8,2), "India Cements" DECIMAL(8,2), "Indiabulls Hsg" DECIMAL(8,2), "Indiabulls Real" DECIMAL(8,2), "Indiabulls Vent" DECIMAL(8,2), "Indian Bank" DECIMAL(8,2), "Indian Hotels" DECIMAL(8,2), "Indo Count" DECIMAL(8,2), "Indoco Remedies" DECIMAL(8,2), "IndusInd Bank" DECIMAL(8,2), "Infibeam Avenue" DECIMAL(8,2), "Info Edge" DECIMAL(8,2), "Infosys" DECIMAL(8,2), "Ingersoll Rand" DECIMAL(8,2), "INOX Leisure" DECIMAL(8,2), "Inox Wind" DECIMAL(8,2), "Intellect Desig" DECIMAL(8,2), "Interglobe Avi" DECIMAL(8,2), "IOB" DECIMAL(8,2), "IOC" DECIMAL(8,2), "Ipca Labs" DECIMAL(8,2), "IRB Infra" DECIMAL(8,2), "ISGEC Heavy Eng" DECIMAL(8,2), "ITC" DECIMAL(8,2), "ITD Cementation" DECIMAL(8,2), "J Kumar Infra" DECIMAL(8,2), "J. K. Cement" DECIMAL(8,2), "JagranPrakashan" DECIMAL(8,2), "Jai Corp" DECIMAL(8,2), "Jain Irrigation" DECIMAL(8,2), "Jaiprakash Asso" DECIMAL(8,2), "JB Chemicals" DECIMAL(8,2), "JBF Industries" DECIMAL(8,2), "Jet Airways" DECIMAL(8,2), "Jindal (Hisar)" DECIMAL(8,2), "Jindal PolyFilm" DECIMAL(8,2), "Jindal Saw" DECIMAL(8,2), "Jindal Steel" DECIMAL(8,2), "JK Bank" DECIMAL(8,2), "JK Lakshmi Cem" DECIMAL(8,2), "JK Tyre & Ind" DECIMAL(8,2), "JM Financial" DECIMAL(8,2), "Johnson Control" DECIMAL(8,2), "JSW Energy" DECIMAL(8,2), "JSW Steel" DECIMAL(8,2), "Jubilant Food" DECIMAL(8,2), "Jubilant Life" DECIMAL(8,2), "Just Dial" DECIMAL(8,2), "Jyothy Labs" DECIMAL(8,2), "Kajaria Ceramic" DECIMAL(8,2), "Kalpataru Power" DECIMAL(8,2), "Kansai Nerolac" DECIMAL(8,2), "Karnataka Bank" DECIMAL(8,2), "Kaveri Seed" DECIMAL(8,2), "KEC Intl" DECIMAL(8,2), "Kesoram" DECIMAL(8,2), "Kirloskar Oil" DECIMAL(8,2), "Kitex Garments" DECIMAL(8,2), "Kotak Mahindra" DECIMAL(8,2), "KPR Mill" DECIMAL(8,2), "KRBL" DECIMAL(8,2), "Kwality" DECIMAL(8,2), "L&T Finance" DECIMAL(8,2), "L&T Infotech" DECIMAL(8,2), "L&T Technology" DECIMAL(8,2), "La Opala RG" DECIMAL(8,2), "Lakshmi Machine" DECIMAL(8,2), "Lakshmi Vilas" DECIMAL(8,2), "Larsen" DECIMAL(8,2), "Laurus Labs" DECIMAL(8,2), "LIC Housing Fin" DECIMAL(8,2), "Linde India" DECIMAL(8,2), "Lupin" DECIMAL(8,2), "M&M" DECIMAL(8,2), "M&M Financial" DECIMAL(8,2), "Magma Fincorp" DECIMAL(8,2), "Mahanagar Gas" DECIMAL(8,2), "Mahindra CIE" DECIMAL(8,2), "Mahindra Holida" DECIMAL(8,2), "Mahindra Life" DECIMAL(8,2), "Manappuram Fin" DECIMAL(8,2), "Manpasand Bever" DECIMAL(8,2), "Marico" DECIMAL(8,2), "Marksans Pharma" DECIMAL(8,2), "Maruti Suzuki" DECIMAL(8,2), "Max Financial" DECIMAL(8,2), "Max India" DECIMAL(8,2), "Mcleod" DECIMAL(8,2), "MCX India" DECIMAL(8,2), "Minda Ind" DECIMAL(8,2), "Mindtree" DECIMAL(8,2), "MMTC Ltd" DECIMAL(8,2), "MOIL" DECIMAL(8,2), "Monsanto India" DECIMAL(8,2), "Motherson Sumi" DECIMAL(8,2), "Motilal Oswal" DECIMAL(8,2), "MphasiS" DECIMAL(8,2), "MRF" DECIMAL(8,2), "MRPL" DECIMAL(8,2), "MTNL" DECIMAL(8,2), "Muthoot Finance" DECIMAL(8,2), "NALCO" DECIMAL(8,2), "Narayana Hruda" DECIMAL(8,2), "Natco Pharma" DECIMAL(8,2), "Nava Bharat Ven" DECIMAL(8,2), "Navin Fluorine" DECIMAL(8,2), "Navkar Corp" DECIMAL(8,2), "Navneet" DECIMAL(8,2), "NBCC (India)" DECIMAL(8,2), "NCC" DECIMAL(8,2), "Nestle" DECIMAL(8,2), "Network 18" DECIMAL(8,2), "NHPC" DECIMAL(8,2), "NIIT" DECIMAL(8,2), "NIIT Tech" DECIMAL(8,2), "Nilkamal" DECIMAL(8,2), "NLC India" DECIMAL(8,2), "NMDC" DECIMAL(8,2), "NTPC" DECIMAL(8,2)) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/allfin';" \
+	#,company_11 DECIMAL(8,2),company_12 DECIMAL(8,2),company_13 DECIMAL(8,2),company_14 DECIMAL(8,2),company_15 DECIMAL(8,2),company_16 DECIMAL(8,2),company_17 DECIMAL(8,2),company_18 DECIMAL(8,2),company_19 DECIMAL(8,2),company_20 DECIMAL(8,2),company_21 DECIMAL(8,2),company_22 DECIMAL(8,2),company_23 DECIMAL(8,2),company_24 DECIMAL(8,2),company_25 DECIMAL(8,2),company_26 DECIMAL(8,2),company_27 DECIMAL(8,2),company_28 DECIMAL(8,2),company_29 DECIMAL(8,2),company_30 DECIMAL(8,2),company_31 DECIMAL(8,2),company_32 DECIMAL(8,2),company_33 DECIMAL(8,2),company_34 DECIMAL(8,2),company_35 DECIMAL(8,2),company_36 DECIMAL(8,2),company_37 DECIMAL(8,2),company_38 DECIMAL(8,2),company_39 DECIMAL(8,2),company_40 DECIMAL(8,2),company_41 DECIMAL(8,2),company_42 DECIMAL(8,2),company_43 DECIMAL(8,2),company_44 DECIMAL(8,2),company_45 DECIMAL(8,2),company_46 DECIMAL(8,2),company_47 DECIMAL(8,2),company_48 DECIMAL(8,2),company_49 DECIMAL(8,2),company_50 DECIMAL(8,2),company_51 DECIMAL(8,2),company_52 DECIMAL(8,2),company_53 DECIMAL(8,2),company_54 DECIMAL(8,2),company_55 DECIMAL(8,2),company_56 DECIMAL(8,2),company_57 DECIMAL(8,2),company_58 DECIMAL(8,2),company_59 DECIMAL(8,2),company_60 DECIMAL(8,2),company_61 DECIMAL(8,2),company_62 DECIMAL(8,2),company_63 DECIMAL(8,2),company_64 DECIMAL(8,2),company_65 DECIMAL(8,2),company_66 DECIMAL(8,2),company_67 DECIMAL(8,2),company_68 DECIMAL(8,2),company_69 DECIMAL(8,2),company_70 DECIMAL(8,2),company_71 DECIMAL(8,2),company_72 DECIMAL(8,2),company_73 DECIMAL(8,2)) 
     --query-execution-context "Database=$ATHENA_DB" \
     --result-configuration "OutputLocation=$ATHENA_BUCKET/output/" \
     >/dev/null
 
-# Create TICKIT venue table in Athena
-echo "Creating venue table..."
+# Create INVESTMENT my_portfolio table in Athena
+echo "Creating my_portfolio table..."
 aws athena start-query-execution \
-    --query-string "create external table venue (venue_id INT, venue_name STRING, venue_city STRING, venue_state STRING, venue_seats INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/venue';" \
+    --query-string "create external table my_portfolio (security_type STRING, company_name STRING, current_stock_price DECIMAL(10,4), percentage_change DECIMAL(10,4), quantity INT, investment INT, average_price DECIMAL(15,4), day_gain INT, day_gain_fraction DECIMAL(15,4),overall_gain INT, overall_gain_fraction DECIMAL(15,4),latest_value INT)   ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/my_portfolio';" \
+    --query-execution-context "Database=$ATHENA_DB" \
+    --result-configuration "OutputLocation=$ATHENA_BUCKET/output/" \
+    >/dev/null
+# Create INVESTMENT company table in Athena
+echo "Creating my_portfolio table..."
+aws athena start-query-execution \
+    --query-string "create external table company (company_name STRING)   ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/company';" \
     --query-execution-context "Database=$ATHENA_DB" \
     --result-configuration "OutputLocation=$ATHENA_BUCKET/output/" \
     >/dev/null
 
-# Create TICKIT category table in Athena
-echo "Creating category table..."
+# Create INVESTMENT date table in Athena
+echo "Creating transaction_history table..."
 aws athena start-query-execution \
-    --query-string "create external table category (cat_id INT, cat_group STRING, cat_name STRING, cat_desc STRING) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/category';" \
+    --query-string "create external table transaction_history (transaction_date DATE, company_name STRING, transaction_type STRING, quantity INT, price DECIMAL(10,4), value INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/transaction_history';" \
     --query-execution-context "Database=$ATHENA_DB" \
     --result-configuration "OutputLocation=$ATHENA_BUCKET/output/" \
     >/dev/null
-
-# Create TICKIT date table in Athena
-echo "Creating date_dim table..."
-aws athena start-query-execution \
-    --query-string "create external table date_dim (date_id INT, cal_date DATE, day STRING, week STRING, month STRING, quarter STRING, year INT, holiday BOOLEAN) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/date';" \
-    --query-execution-context "Database=$ATHENA_DB" \
-    --result-configuration "OutputLocation=$ATHENA_BUCKET/output/" \
-    >/dev/null
-
-# Create TICKIT event table in Athena
-echo "Creating event table..."
-aws athena start-query-execution \
-    --query-string "create external table event (event_id INT, venue_id INT, cat_id INT, date_id INT, event_name STRING, start_time TIMESTAMP) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/event';" \
-    --query-execution-context "Database=$ATHENA_DB" \
-    --result-configuration "OutputLocation=$ATHENA_BUCKET/output/" \
-    >/dev/null
-
-# Create TICKIT listing table in Athena
-echo "Creating listing table..."
-aws athena start-query-execution \
-    --query-string "create external table listing (list_id INT, seller_id INT, event_id INT, date_id INT, qty INT, price DECIMAL(8,2), total DECIMAL(8,2), listing_time TIMESTAMP) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/listing';" \
-    --query-execution-context "Database=$ATHENA_DB" \
-    --result-configuration "OutputLocation=$ATHENA_BUCKET/output/" \
-    >/dev/null
-
-# Create TICKIT sales table in Athena
-echo "Creating sales table..."
-aws athena start-query-execution \
-    --query-string "create external table sales (sales_id INT, list_id INT, seller_id INT, buyer_id INT, event_id INT, date_id INT, qty INT, amount DECIMAL(8,2), commission DECIMAL(8,2), sale_time TIMESTAMP) ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t' LOCATION '$ATHENA_BUCKET/sales';" \
-    --query-execution-context "Database=$ATHENA_DB" \
-    --result-configuration "OutputLocation=$ATHENA_BUCKET/output/" \
-    >/dev/null
-
-

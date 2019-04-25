@@ -1,0 +1,58 @@
+{
+        "name": "Compare_CurrentSP_Intent",
+        "description": "Recursively query the dataset",
+        "sampleUtterances": [
+            "Compare my current stock prices for {one_stock} and {another_stock}",
+            "Compare my current stock prices {one_stock} and {another_stock}",
+            "What is difference in {one_stock} to {another_stock} with respect to current stock price?"
+                    ], 
+        "conclusionStatement": {
+          "messages": [
+            {
+              "content": "via code hook",
+              "contentType": "PlainText"
+            }
+          ]
+        },
+        "fulfillmentActivity": {
+          "codeHook": {
+            "messageVersion": "1.0",
+            "uri": "{{lambda-arn}}"
+          },
+          "type": "CodeHook"
+        },
+        "slots": [
+            {
+                "slotType": "company_name", 
+                "name": "one_stock", 
+                "slotConstraint": "Optional", 
+                "valueElicitationPrompt": {
+                    "maxAttempts": 2, 
+                    "messages": [
+                        {
+                            "content": "one stock price", 
+                            "contentType": "PlainText"
+                        }
+                    ]
+                }, 
+                "priority": 1, 
+                "sampleUtterances": []
+            }, 
+            {
+                "slotType": "company_name", 
+                "name": "another_stock", 
+                "slotConstraint": "Optional", 
+                "valueElicitationPrompt": {
+                    "maxAttempts": 2, 
+                    "messages": [
+                        {
+                            "content": "another stock price", 
+                            "contentType": "PlainText"
+                        }
+                    ]
+                }, 
+                "priority": 2, 
+                "sampleUtterances": []
+            }
+        ]
+}

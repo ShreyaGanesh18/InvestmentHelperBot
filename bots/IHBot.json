@@ -1,0 +1,148 @@
+{
+  "name": "InvestmentHelperBot",
+  "description": "InvestmentHelperBot- a SQL query bot for the Stocks database",
+  "intents": [
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Hello_Intent"
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Compare_AveragePrice_Intent"
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Compare_CurrentSP_Intent"
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+	    "intentName": "Compare_DayGain_Intent"
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Compare_LatestValue_Intent"
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Compare_OpeningPrices_Intent"
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Compare_OverallGain_Intent"
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Compare_Quantity_Intent"
+        },
+
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Goodbye_Intent"
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Refresh_Intent"
+
+        },
+
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Result_CurrentSP_Intent"
+        },
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Result_AveragePrice_Intent"
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Result_DayGain_Intent"
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Result_Investment_Intent"
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+	    "intentName": "Result_LatestValue_Intent"
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Result_OverallGain_Intent"
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Result_PercentageChange_Intent"
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Result_Quantity_Intent"
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Top_AveragePrice_Intent"
+        },
+
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Top_DayGain_Intent"
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Top_Investment_Intent"
+        },
+
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Top_LatestValue_Intent"
+        }, 
+
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Top_OpeningPrices_Intent"
+        },
+
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Top_OverallGain_Intent"
+        }
+  ], 
+  "locale": "en-US",
+  "abortStatement": {
+    "messages": [
+      {
+        "content": "Sorry, I could not understand. Goodbye.",
+        "contentType": "PlainText"
+      }
+    ]
+  },
+  "childDirected": false,
+  "clarificationPrompt": {
+    "maxAttempts": 5,
+    "messages": [
+      {
+        "content": "Come again?",
+        "contentType": "PlainText"
+      },
+      {
+        "content": "I don't understand your question! Can you rephrase?",
+        "contentType": "PlainText"
+      }
+      {
+        "content": "I didn't get you! Please ask differently or change question.",
+        "contentType": "PlainText"
+      }
+      {
+        "content": "I'm not equipped to answer that question. I am sorry. Ask something else, please.",
+        "contentType": "PlainText"
+      }
+
+      {
+        "content": "I cannot tell you that at present, want to try some other question?",
+        "contentType": "PlainText"
+      }
+           
+    ]
+  },
+  "idleSessionTTLInSeconds": 300,
+  "voiceId": "Matthew"
+}

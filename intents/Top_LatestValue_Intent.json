@@ -1,0 +1,29 @@
+{
+    "name": "Top_LatestValue_Intent", 
+    "description": "Top five stocks by OPENING PRICES",
+    "sampleUtterances": [
+        "What were the {count} top stocks in terms of their latest value",
+        "Tell me the top {count} stocks by their latest value",
+        "What were the {count} top stocks in terms of their latest value",
+        "Tell me the top {count} stocks by their latest value"
+        
+    ], 
+    "slots": [
+        {
+            "slotType": "AMAZON.NUMBER", 
+            "name": "count", 
+            "slotConstraint": "Optional", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "number", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 1, 
+            "sampleUtterances": []
+        }
+    }
+}

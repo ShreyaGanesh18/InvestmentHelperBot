@@ -17,21 +17,21 @@
 
 import logging
 import json
-import bibot_config as bibot
-import bibot_helpers as helpers
-import bibot_userexits as userexits
+import ihbot_config as ihbot
+import ihbot_helpers as helpers
+import ihbot_userexits as userexits
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
 
 def lambda_handler(event, context):
-    logger.debug('<<BIBot>> Lex event info = ' + json.dumps(event))
+    logger.debug('<<IHBot>> Lex event info = ' + json.dumps(event))
 
     session_attributes = event['sessionAttributes']
-    logger.debug('<<BIBot>> lambda_handler: session_attributes = ' + json.dumps(session_attributes))
+    logger.debug('<<IHBot>> lambda_handler: session_attributes = ' + json.dumps(session_attributes))
 
-    config_error = helpers.get_bibot_config()
+    config_error = helpers.get_ihbot_config()
     if config_error is not None:
         return helpers.close(session_attributes, 'Fulfilled',
             {'contentType': 'PlainText', 'content': config_error})   
@@ -55,7 +55,7 @@ def goodbye_intent_handler(intent_request, session_attributes):
     elif askCount == 5: response_string = 'Really?'
     else: response_string = 'Ok'
 
-    slot_values = {key: None for key in bibot.SLOT_CONFIG}
+    slot_values = {key: None for key in ihbot.SLOT_CONFIG}
     helpers.remember_slot_values(slot_values, session_attributes)
 
     return helpers.close(session_attributes, 'Fulfilled', {'contentType': 'PlainText','content': response_string})   

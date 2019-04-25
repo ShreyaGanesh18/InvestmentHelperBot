@@ -1,0 +1,12 @@
+{
+        "name": "security_type",
+        "description": "Categories of security type in the investment database",
+        "valueSelectionStrategy": "TOP_RESOLUTION", 
+        "enumerationValues": [
+           { "value": "STOCKS" },
+           { "value": "BONDS" },
+           { "value": "FIXED DEPOSITS" },
+           { "value": "MUTUAL FUNDS" }
+	 ]
+}
+

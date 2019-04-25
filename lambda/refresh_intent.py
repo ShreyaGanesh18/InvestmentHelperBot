@@ -20,8 +20,8 @@ import time
 import logging
 import json
 import pprint
-import bibot_helpers as helpers
-import bibot_userexits as userexits
+import ihbot_helpers as helpers
+import ihbot_userexits as userexits
 
 #
 # parameters for Refresh intent
@@ -29,19 +29,19 @@ import bibot_userexits as userexits
 REFRESH_QUERY = 'SELECT DISTINCT event_name from event ORDER BY event_name'
 REFRESH_SLOT = 'event_name'
 REFRESH_INTENT = 'Compare_Intent'
-REFRESH_BOT = 'BIBot'
+REFRESH_BOT = 'IHBot'
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
 
 def lambda_handler(event, context):
-    logger.debug('<<BIBot>> Lex event info = ' + json.dumps(event))
+    logger.debug('<<IHBot>> Lex event info = ' + json.dumps(event))
 
     session_attributes = event['sessionAttributes']
-    logger.debug('<<BIBot>> lambda_handler: session_attributes = ' + json.dumps(session_attributes))
+    logger.debug('<<IHBot>> lambda_handler: session_attributes = ' + json.dumps(session_attributes))
 
-    config_error = helpers.get_bibot_config()
+    config_error = helpers.get_ihbot_config()
     if config_error is not None:
         return helpers.close(session_attributes, 'Fulfilled',
             {'contentType': 'PlainText', 'content': config_error})   
@@ -54,35 +54,35 @@ def refresh_intent_handler(intent_request, session_attributes):
     session_attributes['lastIntent'] = None
 
     # Build and execute query
-    logger.debug('<<BIBot>> Athena Query String = ' + REFRESH_QUERY)            
+    logger.debug('<<IHBot>> Athena Query String = ' + REFRESH_QUERY)            
 
     st_values = []
     response = helpers.execute_athena_query(REFRESH_QUERY)
-    logger.debug('<<BIBot>> query response = ' + json.dumps(response)) 
+    logger.debug('<<IHBot>> query response = ' + json.dumps(response)) 
 
     while len(response['ResultSet']['Rows']) > 0:
         for item in response['ResultSet']['Rows']:
             st_values.append({'value': item['Data'][0]['VarCharValue']})
-            logger.debug('<<BIBot>> appending: ' + item['Data'][0]['VarCharValue']) 
+            logger.debug('<<IHBot>> appending: ' + item['Data'][0]['VarCharValue']) 
         
         try:
             next_token = response['NextToken']
             response = athena.get_query_results(QueryExecutionId=query_execution_id, NextToken=next_token, MaxResults=100)
-            logger.debug('<<BIBot>> additional query response = ' + json.dumps(response)) 
+            logger.debug('<<IHBot>> additional query response = ' + json.dumps(response)) 
         except KeyError:
             break
 
-    logger.debug('<<BIBot>> "st_values = ' + pprint.pformat(st_values)) 
+    logger.debug('<<IHBot>> "st_values = ' + pprint.pformat(st_values)) 
         
     lex_models = boto3.client('lex-models')
     response = lex_models.get_slot_type(name=REFRESH_SLOT, version='$LATEST')
-    logger.debug('<<BIBot>> "boto3 version = ' + boto3.__version__) 
-    logger.debug('<<BIBot>> "Lex slot event_name = ' + pprint.pformat(response, indent=4)) 
-    logger.debug('<<BIBot>> "Lex slot event_name checksum = ' + response['checksum']) 
-    logger.debug('<<BIBot>> "Lex slot event_name valueSelectionStrategy = ' + response['valueSelectionStrategy']) 
+    logger.debug('<<IHBot>> "boto3 version = ' + boto3.__version__) 
+    logger.debug('<<IHBot>> "Lex slot event_name = ' + pprint.pformat(response, indent=4)) 
+    logger.debug('<<IHBot>> "Lex slot event_name checksum = ' + response['checksum']) 
+    logger.debug('<<IHBot>> "Lex slot event_name valueSelectionStrategy = ' + response['valueSelectionStrategy']) 
     
     try:
-        logger.debug('<<BIBot>> "st_values = ' + pprint.pformat(st_values)) 
+        logger.debug('<<IHBot>> "st_values = ' + pprint.pformat(st_values)) 
 
         st_checksum = response['checksum']
         response = lex_models.put_slot_type(name=response['name'],
@@ -95,8 +95,8 @@ def refresh_intent_handler(intent_request, session_attributes):
         pass
     
     response = lex_models.get_intent(name=REFRESH_INTENT, version='$LATEST')
-    logger.debug('<<BIBot>> Lex get-intent = ' + pprint.pformat(response, indent=4)) 
-    logger.debug('<<BIBot>> Lex get-intent keys = ' + pprint.pformat(response.keys()))
+    logger.debug('<<IHBot>> Lex get-intent = ' + pprint.pformat(response, indent=4)) 
+    logger.debug('<<IHBot>> Lex get-intent keys = ' + pprint.pformat(response.keys()))
     
     response = lex_models.put_intent(name=response['name'],
                                      description=response['description'],
@@ -108,7 +108,7 @@ def refresh_intent_handler(intent_request, session_attributes):
                                     )
     
     response = lex_models.get_bot(name=REFRESH_BOT, versionOrAlias='$LATEST')
-    logger.debug('<<BIBot>> Lex bot = ' + pprint.pformat(response, indent=4)) 
+    logger.debug('<<IHBot>> Lex bot = ' + pprint.pformat(response, indent=4)) 
     
     response = lex_models.put_bot(name=REFRESH_BOT,
                                   description=response['description'],
@@ -123,7 +123,7 @@ def refresh_intent_handler(intent_request, session_attributes):
                                   childDirected=response['childDirected']
                                  )
 
-    logger.debug('<<BIBot>> Lex put bot = ' + pprint.pformat(response, indent=4)) 
+    logger.debug('<<IHBot>> Lex put bot = ' + pprint.pformat(response, indent=4)) 
 
     response_string = "I've refreshed the events dimension from the database.  Please rebuild me."
     return helpers.close(session_attributes, 'Fulfilled', {'contentType': 'PlainText','content': response_string})   

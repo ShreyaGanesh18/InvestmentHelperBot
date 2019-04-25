@@ -1,6 +1,6 @@
 {
         "name": "Hello_Intent",
-        "description": "Say hello to BIBot",
+        "description": "start conversation with Investment helperbot",
         "conclusionStatement": {
           "messages": [
             {
