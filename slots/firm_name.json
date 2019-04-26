@@ -1,9 +1,0 @@
-{
-        "name": "firm_name",
-        "description": "Names of firmin allfin database",
-        "valueSelectionStrategy": "TOP_RESOLUTION", 
-        "enumerationValues": [
-           { "value": "Sample firm1" },
-           { "value": "Another Sample firm"}
-	 ]
-}

@@ -1,6 +1,6 @@
 {
         "name": "company_name",
-        "description": "Names of companies in my_portfolio database",
+        "description": "Names of companies in investments database",
         "valueSelectionStrategy": "TOP_RESOLUTION", 
         "enumerationValues": [
            { "value": "Sample company 1" },
