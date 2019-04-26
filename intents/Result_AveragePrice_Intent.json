@@ -1,6 +1,6 @@
 {
 	"name": "Result_AveragePrice_Intent",
-        "description": "Recursively query the dataset",
+        "description": "Result_AveragePrice_Intent",
         "conclusionStatement": {
           "messages": [
             {

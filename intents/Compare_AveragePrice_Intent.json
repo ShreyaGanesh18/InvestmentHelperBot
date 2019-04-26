@@ -1,6 +1,6 @@
 {
         "name": "Compare_AveragePrice_Intent",
-        "description": "Compare the avg dataset",
+        "description": "Compare_AveragePrice_Intent",
         "sampleUtterances": [
             "Compare average stock prices  so far for {one_stock} with respect to {another_stock}",
             "Compare average stock price of {one_stock} with respect to {another_stock}",

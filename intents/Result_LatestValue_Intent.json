@@ -1,6 +1,6 @@
 {
 	"name": "Result_LatestValue_Intent",
-        "description": "Recursively query the dataset",
+        "description": "Result_LatestValue_Intent",
         "conclusionStatement": {
           "messages": [
             {

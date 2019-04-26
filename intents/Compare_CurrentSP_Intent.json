@@ -1,6 +1,6 @@
 {
         "name": "Compare_CurrentSP_Intent",
-        "description": "Recursively query the dataset",
+        "description": "Recursively Compare_CurrentSP_Intenthe dataset",
         "sampleUtterances": [
             "Compare my current stock prices for {one_stock} and {another_stock}",
             "Compare my current stock prices {one_stock} and {another_stock}",

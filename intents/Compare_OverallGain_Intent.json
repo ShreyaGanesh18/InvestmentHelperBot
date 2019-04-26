@@ -1,6 +1,6 @@
 {
         "name": "Compare_OverallGain_Intent",
-        "description": "Recursively query the dataset",
+        "description": "Compare_OverallGain_Intent Recursively query the dataset",
         "sampleUtterances": [
             "Compare my overall gains of {one_stock} and {another_stock}",
             "Compare {one_stock} and {another_stock} with respect to overall gain",

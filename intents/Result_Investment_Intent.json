@@ -1,6 +1,6 @@
 {
 	"name": "Result_Investment_Intent",
-        "description": "Recursively query the dataset",
+        "description": "Result_Investment_Intent",
         "conclusionStatement": {
           "messages": [
             {

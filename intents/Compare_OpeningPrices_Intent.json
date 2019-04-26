@@ -1,6 +1,6 @@
 {
         "name": "Compare_OpeningPrices_Intent",
-        "description": "Recursively query the dataset",
+        "description": "Compare_OpeningPrices_Intent Recursively query the dataset",
         "sampleUtterances": [
             "Compare opening prices for {one_company} and {another_company} on {particular_date}",
             "Compare opening prices between {one_date} and {another_date} for {particular_company}",

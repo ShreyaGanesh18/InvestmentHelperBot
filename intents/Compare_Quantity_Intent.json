@@ -1,6 +1,6 @@
 {
         "name": "Compare_Quantity_Intent",
-        "description": "Recursively query the dataset",
+        "description": "Compare_Quantity_Intent Recursively query the dataset",
         "sampleUtterances": [
             "Compare purchase quantity of {one_stock} and {another_stock}",
             "Compare quantities bought of {one_stock} and {another_stock}",

@@ -1,6 +1,6 @@
 {
 	"name": "Result_OverallGain_Intent",
-        "description": "Recursively query the dataset",
+        "description": "Result_OverallGain_Intent",
         "conclusionStatement": {
           "messages": [
             {

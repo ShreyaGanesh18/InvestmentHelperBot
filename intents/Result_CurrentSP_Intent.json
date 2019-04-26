@@ -1,6 +1,6 @@
 {
 	"name": "Result_CurrentSP_Intent",
-        "description": "Recursively query the dataset",
+        "description": "Result_CurrentSP_Intent",
         "conclusionStatement": {
           "messages": [
             {

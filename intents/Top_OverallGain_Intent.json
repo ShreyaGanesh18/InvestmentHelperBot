@@ -1,6 +1,6 @@
 {
     "name": "Top_OverallGain_Intent", 
-    "description": "Top five stocks by OPENING PRICES",
+    "description": "TTop_OverallGain_Intent OPENING PRICES",
     "sampleUtterances": [
         "What were the {count} top stocks in terms of their overall gain",
         "Tell me the top {count} stocks by their overall gain",

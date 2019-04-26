@@ -1,6 +1,6 @@
 {
         "name": "Compare_LatestValue_Intent",
-        "description": "Recursively query the dataset",
+        "description": "Compare_LatestValue_Intent",
         "sampleUtterances": [
             "Compare latest values of {one_stock} versus {another_stock}",
             "Compare latest values of {one_stock} and {another_stock}",

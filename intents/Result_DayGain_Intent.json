@@ -1,6 +1,6 @@
 {
 	"name": "Result_DayGain_Intent",
-        "description": "Recursively query the dataset",
+        "description": "Result_DayGain_Intent",
         "conclusionStatement": {
           "messages": [
             {

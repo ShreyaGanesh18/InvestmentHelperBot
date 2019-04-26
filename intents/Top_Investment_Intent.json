@@ -1,6 +1,6 @@
 {
     "name": "Top_Investment_Intent", 
-    "description": "Top five stocks by OPENING PRICES",
+    "description": "Top_Investment_Intent OPENING PRICES",
     "sampleUtterances": [
         "What were the {count} top stocks in terms of my investments",
         "Tell me the top {count} stocks by amount invested",

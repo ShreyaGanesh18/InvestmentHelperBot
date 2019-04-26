@@ -1,6 +1,6 @@
 {
 	"name": "Result_Quantity_Intent",
-        "description": "Recursively query the dataset",
+        "description": "Result_Quantity_Intent",
         "conclusionStatement": {
           "messages": [
             {
