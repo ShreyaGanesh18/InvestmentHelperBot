@@ -35,14 +35,14 @@ aws athena start-query-execution \
 # Create INVESTMENT my_portfolio table in Athena
 echo "Creating my_portfolio table..."
 aws athena start-query-execution \
-    --query-string "create external table my_portfolio (security_type STRING, CORPORATION_name STRING, current_stock_price DECIMAL(10,4), percentage_change DECIMAL(10,4), quantity INT, investment INT, average_price DECIMAL(15,4), day_gain INT, day_gain_fraction DECIMAL(15,4),overall_gain INT, overall_gain_fraction DECIMAL(15,4),latest_value INT)   ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/my_portfolio';" \
+    --query-string "create external table my_portfolio (security_type STRING, company_name STRING, current_stock_price DECIMAL(10,4), percentage_change DECIMAL(10,4), quantity INT, investment INT, average_price DECIMAL(15,4), day_gain INT, day_gain_fraction DECIMAL(15,4),overall_gain INT, overall_gain_fraction DECIMAL(15,4),latest_value INT)   ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/my_portfolio';" \
     --query-execution-context "Database=$ATHENA_DB" \
     --result-configuration "OutputLocation=$ATHENA_BUCKET/output/" \
     >/dev/null
 # Create INVESTMENT company table in Athena
 echo "Creating COMPANY table..."
 aws athena start-query-execution \
-    --query-string "create external table companyonex (CORPORATION_name STRING)   ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/companyonex';" \
+    --query-string "create external table companyonex (company_name STRING)   ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/companyonex';" \
     --query-execution-context "Database=$ATHENA_DB" \
     --result-configuration "OutputLocation=$ATHENA_BUCKET/output/" \
     >/dev/null
@@ -50,7 +50,7 @@ aws athena start-query-execution \
 # Create INVESTMENT date table in Athena
 echo "Creating transaction_history table..."
 aws athena start-query-execution \
-    --query-string "create external table transaction_history (transaction_date DATE, CORPORATION_name STRING, transaction_type STRING, quantity INT, price INT, value INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/transaction_history';" \
+    --query-string "create external table transaction_history (transaction_date DATE, company_name STRING, transaction_type STRING, quantity INT, price INT, value INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/transaction_history';" \
     --query-execution-context "Database=$ATHENA_DB" \
     --result-configuration "OutputLocation=$ATHENA_BUCKET/output/" \
     >/dev/null

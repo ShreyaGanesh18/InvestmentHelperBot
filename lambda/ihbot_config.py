@@ -17,8 +17,8 @@ SLOT_CONFIG = {
     }
 
 DIMENSIONS = {
-    'companies':     {'slot': 'company_name',  'column':'c.CORPORATION_name',  'singular': 'company'},
-    'stocks':     {'slot': 'company_name', 'column': 'my_portfolio.CORPORATION_name', 'singular': 'stock'}
+    'companies':     {'slot': 'company_name',  'column':'c.company_name',  'singular': 'company'},
+    'stocks':     {'slot': 'company_name', 'column': 'my_portfolio.company_name', 'singular': 'stock'}
 }
 
 
