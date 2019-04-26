@@ -30,13 +30,13 @@ def lambda_handler(event, context):
         return helpers.close(session_attributes, 'Fulfilled',
             {'contentType': 'PlainText', 'content': config_error})   
     else:
-        return compare_intent_handler(event, session_attributes)
+        return compare_intent1_handler(event, session_attributes)
 
 
-def compare_intent_handler(intent_request, session_attributes):
+def compare_intent1_handler(intent_request, session_attributes):
     method_start = time.perf_counter()
     
-    logger.debug('<<IHBot>> compare_intent_handler: session_attributes = ' + json.dumps(session_attributes))
+    logger.debug('<<IHBot>> compare_intent1_handler: session_attributes = ' + json.dumps(session_attributes))
 
     session_attributes['greetingCount'] = '1'
     session_attributes['resetCount'] = '0'
@@ -51,11 +51,11 @@ def compare_intent_handler(intent_request, session_attributes):
     except ihbot.SlotError as err:
         return helpers.close(session_attributes, 'Fulfilled', {'contentType': 'PlainText','content': str(err)})   
         
-    logger.debug('<<IHBot>> "count_intent_handler(): slot_values: %s', slot_values)
+    logger.debug('<<IHBot>> "count_intent1_handler(): slot_values: %s', slot_values)
 
     # Retrieve "remembered" slot values from session attributes
     slot_values = helpers.get_remembered_slot_values(slot_values, session_attributes)
-    logger.debug('<<IHBot>> "count_intent_handler(): slot_values afer get_remembered_slot_values: %s', slot_values)
+    logger.debug('<<IHBot>> "count_intent1_handler(): slot_values afer get_remembered_slot_values: %s', slot_values)
 
     # Remember updated slot values
     helpers.remember_slot_values(slot_values, session_attributes)
@@ -82,11 +82,11 @@ def compare_intent_handler(intent_request, session_attributes):
     where_clause += "   AND (LOWER(" + ihbot.DIMENSIONS[slot_values['dimension']]['column'] + ") LIKE LOWER('%" + the_1st_dimension_value + "%') OR "
     where_clause +=         "LOWER(" + ihbot.DIMENSIONS[slot_values['dimension']]['column'] + ") LIKE LOWER('%" + the_2nd_dimension_value + "%')) " 
 
-    logger.debug('<<IHBot>> compare_intent_request - building WHERE clause') 
+    logger.debug('<<IHBot>> compare_intent1_request - building WHERE clause') 
     for dimension in ihbot.DIMENSIONS:
         slot_key = ihbot.DIMENSIONS.get(dimension).get('slot')
         if slot_values[slot_key] is not None:
-            logger.debug('<<IHBot>> compare_intent_request - calling userexits.pre_process_query_value(%s, %s)', 
+            logger.debug('<<IHBot>> compare_intent1_request - calling userexits.pre_process_query_value(%s, %s)', 
                          slot_key, slot_values[slot_key])  
             value = userexits.pre_process_query_value(slot_key, slot_values[slot_key])
             where_clause += COMPARE_WHERE.format(ihbot.DIMENSIONS.get(dimension).get('column'), value)
@@ -144,7 +144,7 @@ def compare_intent_handler(intent_request, session_attributes):
                              response['ResultSet']['Rows'][2]['Data'][0]['VarCharValue'],  
                              float(response['ResultSet']['Rows'][2]['Data'][1]['VarCharValue']) ] } )
 
-        logger.debug('<<IHBot>> compare_intent_handler - result_set = %s', result_set) 
+        logger.debug('<<IHBot>> compare_intent1_handler - result_set = %s', result_set) 
 
         the_1st_dimension_string = result_set[the_1st_dimension_value.lower()][0]
         the_1st_dimension_string = userexits.post_process_dimension_output(key, the_1st_dimension_string)
