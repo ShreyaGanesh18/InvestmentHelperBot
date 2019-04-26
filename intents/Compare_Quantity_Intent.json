@@ -31,7 +31,7 @@
                     "maxAttempts": 2, 
                     "messages": [
                         {
-                            "content": "one stock price", 
+                            "content": "one sstock price", 
                             "contentType": "PlainText"
                         }
                     ]
@@ -47,7 +47,7 @@
                     "maxAttempts": 2, 
                     "messages": [
                         {
-                            "content": "another stock price", 
+                            "content": "another sstock price", 
                             "contentType": "PlainText"
                         }
                     ]
