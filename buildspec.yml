@@ -7,31 +7,16 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - cd lambda
-      - python ../zip.py ../Compare_AveragePrice_Intent.zip compare_averageprice_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
+      - cd lambda      
       - python ../zip.py ../Compare_CurrentSP_Intent.zip compare_currentsp_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
       - python ../zip.py ../Compare_DayGain_Intent.zip compare_daygain_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
       - python ../zip.py ../Refresh_Intent.zip refresh_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
       - python ../zip.py ../Compare_LatestValue_Intent.zip compare_latestvalue_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
-      - python ../zip.py ../Hello_Intent.zip hello_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
-      - python ../zip.py ../Goodbye_Intent.zip goodbye_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
       - python ../zip.py ../Compare_OpeningPrices_Intent.zip compare_openingprices_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
-      - python ../zip.py ../Compare_OverallGain_Intent.zip compare_overallgain_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
-      - python ../zip.py ../Compare_Quantity_Intent.zip compare_quantity_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
       - python ../zip.py ../Result_AveragePrice_Intent.zip result_average_price_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
       - python ../zip.py ../Result_CurrentSP_Intent.zip result_currentsp_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
       - python ../zip.py ../Result_DayGain_Intent.zip result_daygain_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
       - python ../zip.py ../Result_Investment_Intent.zip result_investment_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
-      - python ../zip.py ../Result_LatestValue_Intent.zip result_latestvalue_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
-      - python ../zip.py ../Result_OverallGain_Intent.zip result_overallgain_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
-      - python ../zip.py ../Result_PercentageChange_Intent.zip result_percentagechange_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py       
-      - python ../zip.py ../Result_Quantity_Intent.zip result_quantity_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
-      - python ../zip.py ../Top_AveragePrice_Intent.zip top_averageprice_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
-      - python ../zip.py ../Top_DayGain_Intent.zip top_daygain_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
-      - python ../zip.py ../Top_Investment_Intent.zip top_investment_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
-      - python ../zip.py ../Top_LatestValue_Intent.zip top_latestvalue_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
-      - python ../zip.py ../Top_OpeningPrices_Intent.zip top_openingprices_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
-      - python ../zip.py ../Top_OverallGain_Intent.zip top_overallgain_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
       - cd ..
       - ls -l *.zip
       - bash delete.sh
