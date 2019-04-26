@@ -139,7 +139,7 @@ def compare_intent_handler(intent_request, session_attributes):
     if (result_count == 0):
         if len(response_string) > 0:
             response_string += ', '
-        response_string += "I didn't find any results for the " + slot_values['dimension']
+        response_string += "I  didn't find any results for the " + slot_values['dimension']
         response_string += " " + userexits.post_process_dimension_output(key, the_1st_dimension_value)
         response_string += " and " + userexits.post_process_dimension_output(key, the_2nd_dimension_value) + "."
 
