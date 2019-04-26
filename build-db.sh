@@ -42,7 +42,7 @@ aws athena start-query-execution \
 # Create INVESTMENT company table in Athena
 echo "Creating COMPANY table..."
 aws athena start-query-execution \
-    --query-string "create external table company (company_name STRING)   ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/company';" \
+    --query-string "create external table companyonex (company_name STRING)   ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/companyonex';" \
     --query-execution-context "Database=$ATHENA_DB" \
     --result-configuration "OutputLocation=$ATHENA_BUCKET/output/" \
     >/dev/null
