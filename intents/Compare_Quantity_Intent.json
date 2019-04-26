@@ -1,0 +1,59 @@
+{
+        "name": "Compare_Quantity_Intent",
+        "description": "Compare_Quantity_Intent Recursively query the dataset",
+        "sampleUtterances": [
+            "Compare purchase quantity of {one_stock} and {another_stock}",
+            "Compare quantities bought of {one_stock} and {another_stock}",
+            "What is difference in purchase quantity of {one_stock} to {another_stock}",
+            "What is difference between {one_stock} and {another_stock} in terms of quantity?"
+                    ], 
+        "conclusionStatement": {
+          "messages": [
+            {
+              "content": "via code hook",
+              "contentType": "PlainText"
+            }
+          ]
+        },
+        "fulfillmentActivity": {
+          "codeHook": {
+            "messageVersion": "1.0",
+            "uri": "{{lambda-arn}}"
+          },
+          "type": "CodeHook"
+        },
+        "slots": [
+            {
+                "slotType": "company_name", 
+                "name": "one_stock", 
+                "slotConstraint": "Optional", 
+                "valueElicitationPrompt": {
+                    "maxAttempts": 2, 
+                    "messages": [
+                        {
+                            "content": "one stock price", 
+                            "contentType": "PlainText"
+                        }
+                    ]
+                }, 
+                "priority": 1, 
+                "sampleUtterances": []
+            }, 
+            {
+                "slotType": "company_name", 
+                "name": "another_stock", 
+                "slotConstraint": "Optional", 
+                "valueElicitationPrompt": {
+                    "maxAttempts": 2, 
+                    "messages": [
+                        {
+                            "content": "another stock price", 
+                            "contentType": "PlainText"
+                        }
+                    ]
+                }, 
+                "priority": 2, 
+                "sampleUtterances": []
+            }
+        ]
+}

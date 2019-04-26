@@ -1,0 +1,58 @@
+{
+        "name": "Compare_OverallGain_Intent",
+        "description": "Compare_OverallGain_Intent Recursively query the dataset",
+        "sampleUtterances": [
+            "Compare my overall gains of {one_stock} and {another_stock}",
+            "Compare {one_stock} and {another_stock} with respect to overall gain",
+            "What is difference in overall gains of {one_stock} and {another_stock}"
+                    ], 
+        "conclusionStatement": {
+          "messages": [
+            {
+              "content": "via code hook",
+              "contentType": "PlainText"
+            }
+          ]
+        },
+        "fulfillmentActivity": {
+          "codeHook": {
+            "messageVersion": "1.0",
+            "uri": "{{lambda-arn}}"
+          },
+          "type": "CodeHook"
+        },
+        "slots": [
+            {
+                "slotType": "company_name", 
+                "name": "one_stock", 
+                "slotConstraint": "Optional", 
+                "valueElicitationPrompt": {
+                    "maxAttempts": 2, 
+                    "messages": [
+                        {
+                            "content": "one stock price", 
+                            "contentType": "PlainText"
+                        }
+                    ]
+                }, 
+                "priority": 1, 
+                "sampleUtterances": []
+            }, 
+            {
+                "slotType": "company_name", 
+                "name": "another_stock", 
+                "slotConstraint": "Optional", 
+                "valueElicitationPrompt": {
+                    "maxAttempts": 2, 
+                    "messages": [
+                        {
+                            "content": "another stock price", 
+                            "contentType": "PlainText"
+                        }
+                    ]
+                }, 
+                "priority": 2, 
+                "sampleUtterances": []
+            }
+        ]
+}

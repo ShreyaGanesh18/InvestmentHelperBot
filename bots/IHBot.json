@@ -22,24 +22,9 @@
             "intentVersion": "$LATEST", 
             "intentName": "Refresh_Intent"
 
-        },
+        }
 
-        {
-            "intentVersion": "$LATEST", 
-            "intentName": "Result_CurrentSP_Intent"
-        },
-        {
-            "intentVersion": "$LATEST", 
-            "intentName": "Result_AveragePrice_Intent"
-        }, 
-        {
-            "intentVersion": "$LATEST", 
-            "intentName": "Result_DayGain_Intent"
-        }, 
-        {
-            "intentVersion": "$LATEST", 
-            "intentName": "Result_Investment_Intent"
-        }, 
+        
           ], 
   "locale": "en-US",
   "abortStatement": {

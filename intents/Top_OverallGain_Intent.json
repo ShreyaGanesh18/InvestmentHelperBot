@@ -1,0 +1,29 @@
+{
+    "name": "Top_OverallGain_Intent", 
+    "description": "TTop_OverallGain_Intent OPENING PRICES",
+    "sampleUtterances": [
+        "What were the {count} top stocks in terms of their overall gain",
+        "Tell me the top {count} stocks by their overall gain",
+        "What were the {count} top stocks in terms of their overall gain",
+        "Tell me the top {count} stocks by their overall gain"
+        
+    ], 
+    "slots": [
+        {
+            "slotType": "AMAZON.NUMBER", 
+            "name": "count", 
+            "slotConstraint": "Optional", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "number", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 1, 
+            "sampleUtterances": []
+        }]
+    
+}
