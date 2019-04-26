@@ -4,14 +4,6 @@
   "intents": [
         {
             "intentVersion": "$LATEST", 
-            "intentName": "Hello_Intent"
-        }, 
-        {
-            "intentVersion": "$LATEST", 
-            "intentName": "Compare_AveragePrice_Intent"
-        }, 
-        {
-            "intentVersion": "$LATEST", 
             "intentName": "Compare_CurrentSP_Intent"
         }, 
         {
@@ -26,20 +18,7 @@
             "intentVersion": "$LATEST", 
             "intentName": "Compare_OpeningPrices_Intent"
         }, 
-        {
-            "intentVersion": "$LATEST", 
-            "intentName": "Compare_OverallGain_Intent"
-        }, 
-        {
-            "intentVersion": "$LATEST", 
-            "intentName": "Compare_Quantity_Intent"
-        },
-
-        {
-            "intentVersion": "$LATEST", 
-            "intentName": "Goodbye_Intent"
-        }, 
-        {
+                {
             "intentVersion": "$LATEST", 
             "intentName": "Refresh_Intent"
 
@@ -61,51 +40,7 @@
             "intentVersion": "$LATEST", 
             "intentName": "Result_Investment_Intent"
         }, 
-        {
-            "intentVersion": "$LATEST", 
-	    "intentName": "Result_LatestValue_Intent"
-        }, 
-        {
-            "intentVersion": "$LATEST", 
-            "intentName": "Result_OverallGain_Intent"
-        }, 
-        {
-            "intentVersion": "$LATEST", 
-            "intentName": "Result_PercentageChange_Intent"
-        }, 
-        {
-            "intentVersion": "$LATEST", 
-            "intentName": "Result_Quantity_Intent"
-        }, 
-        {
-            "intentVersion": "$LATEST", 
-            "intentName": "Top_AveragePrice_Intent"
-        },
-
-        {
-            "intentVersion": "$LATEST", 
-            "intentName": "Top_DayGain_Intent"
-        }, 
-        {
-            "intentVersion": "$LATEST", 
-            "intentName": "Top_Investment_Intent"
-        },
-
-        {
-            "intentVersion": "$LATEST", 
-            "intentName": "Top_LatestValue_Intent"
-        }, 
-
-        {
-            "intentVersion": "$LATEST", 
-            "intentName": "Top_OpeningPrices_Intent"
-        },
-
-        {
-            "intentVersion": "$LATEST", 
-            "intentName": "Top_OverallGain_Intent"
-        }
-  ], 
+          ], 
   "locale": "en-US",
   "abortStatement": {
     "messages": [

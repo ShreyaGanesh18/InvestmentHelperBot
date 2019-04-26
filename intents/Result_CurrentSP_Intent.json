@@ -1,0 +1,43 @@
+{
+	"name": "Result_CurrentSP_Intent",
+        "description": "Result_CurrentSP_Intent",
+        "conclusionStatement": {
+          "messages": [
+            {
+              "content": "via code hook",
+              "contentType": "PlainText"
+            }
+          ]
+        },
+        "fulfillmentActivity": {
+          "codeHook": {
+            "messageVersion": "1.0",
+            "uri": "{{lambda-arn}}"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "What is Current stock price of {particular_stock}",
+          "What is {particular_stock}'s current stock price?"
+        ],
+    "slots": [
+        {
+            "slotType": "company_name", 
+            "name": "particular_stock", 
+            "slotConstraint": "Optional", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "particular stock", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 1, 
+            "slotTypeVersion": "$LATEST", 
+            "sampleUtterances": [], 
+            "description": "company name"
+        }
+    ]
+}

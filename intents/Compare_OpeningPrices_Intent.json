@@ -1,0 +1,123 @@
+{
+        "name": "Compare_OpeningPrices_Intent",
+        "description": "Compare_OpeningPrices_Intent Recursively query the dataset",
+        "sampleUtterances": [
+            "Compare opening prices for {one_company} and {another_company} on {particular_date}",
+            "Compare opening prices between {one_date} and {another_date} for {particular_company}",
+            "What is change in opening price from {one_date} to {another_date} in {particular_company}", 
+            "What is change in opening price of {one_company} and {another_company} on {particular_date}"
+                    ], 
+        "conclusionStatement": {
+          "messages": [
+            {
+              "content": "via code hook",
+              "contentType": "PlainText"
+            }
+          ]
+        },
+        "fulfillmentActivity": {
+          "codeHook": {
+            "messageVersion": "1.0",
+            "uri": "{{lambda-arn}}"
+          },
+          "type": "CodeHook"
+        },
+        "slots": [
+            {
+                "slotType": "AMAZON.DATE", 
+                "name": "one_date", 
+                "slotConstraint": "Optional", 
+                "valueElicitationPrompt": {
+                    "maxAttempts": 2, 
+                    "messages": [
+                        {
+                            "content": "one date", 
+                            "contentType": "PlainText"
+                        }
+                    ]
+                }, 
+                "priority": 1, 
+                "sampleUtterances": []
+            }, 
+            {
+                "slotType": "AMAZON.DATE", 
+                "name": "another_date", 
+                "slotConstraint": "Optional", 
+                "valueElicitationPrompt": {
+                    "maxAttempts": 2, 
+                    "messages": [
+                        {
+                            "content": "another date", 
+                            "contentType": "PlainText"
+                        }
+                    ]
+                }, 
+                "priority": 2, 
+                "sampleUtterances": []
+            }, 
+            {
+                "slotType": "AMAZON.DATE", 
+                "name": "particular_date", 
+                "slotConstraint": "Optional", 
+                "valueElicitationPrompt": {
+                    "maxAttempts": 2, 
+                    "messages": [
+                        {
+                            "content": "particular date", 
+                            "contentType": "PlainText"
+                        }
+                    ]
+                }, 
+                "priority": 3, 
+                "sampleUtterances": []
+            }, 
+            {
+                "slotType": "company_name", 
+                "name": "one_company", 
+                "slotConstraint": "Optional", 
+                "valueElicitationPrompt": {
+                    "maxAttempts": 2, 
+                    "messages": [
+                        {
+                            "content": "one company", 
+                            "contentType": "PlainText"
+                        }
+                    ]
+                }, 
+                "priority": 4, 
+                "sampleUtterances": []
+            }, 
+            {
+                "slotType": "company_name", 
+                "name": "another_company", 
+                "slotConstraint": "Optional", 
+                "valueElicitationPrompt": {
+                    "maxAttempts": 2, 
+                    "messages": [
+                        {
+                            "content": "another company", 
+                            "contentType": "PlainText"
+                        }
+                    ]
+                }, 
+                "priority": 5, 
+                "sampleUtterances": []
+            }, 
+            {
+                "slotType": "company_name", 
+                "name": "particular_company", 
+                "slotConstraint": "Optional", 
+                "valueElicitationPrompt": {
+                    "maxAttempts": 2, 
+                    "messages": [
+                        {
+                            "content": "particular company", 
+                            "contentType": "PlainText"
+                        }
+                    ]
+                }, 
+                "priority": 6, 
+                "sampleUtterances": []
+            }
+        ]
+}
