@@ -13,6 +13,11 @@ phases:
       - python ../zip.py ../Refresh_Intent.zip refresh_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
       - python ../zip.py ../Compare_LatestValue_Intent.zip compare_latestvalue_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
       - python ../zip.py ../Compare_OpeningPrices_Intent.zip compare_openingprices_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
+      - python ../zip.py ../Compare_AveragePrice_Intent.zip compare_averageprice_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
+      - python ../zip.py ../Hello_Intent.zip hello_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
+      - python ../zip.py ../Compare_OverallGain_Intent.zip compare_overallgain_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
+      - python ../zip.py ../Goodbye_Intent.zip goodbye_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
+      - python ../zip.py ../Compare_Quantity_Intent.zip compare_quantity_intent.py ihbot_config.py ihbot_helpers.py ihbot_userexits.py
       - cd ..
       - ls -l *.zip
       - bash delete.sh

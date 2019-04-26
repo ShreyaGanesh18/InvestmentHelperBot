@@ -22,13 +22,7 @@
                 "days"
             ], 
             "value": "dates"
-        },
-        {
-            "synonyms": [
-                "Type of investment"
-            ], 
-            "value": "security types"
-        },
+        }
         
     ]
 }

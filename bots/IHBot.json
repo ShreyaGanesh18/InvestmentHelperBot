@@ -17,12 +17,31 @@
         {
             "intentVersion": "$LATEST", 
             "intentName": "Compare_OpeningPrices_Intent"
+        }, {
+            "intentVersion": "$LATEST", 
+            "intentName": "Compare_OverallGain_Intent"
         }, 
-                {
+        {
+            "intentVersion": "$LATEST", 
+	    "intentName": "Compare_Quantity_Intent"
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Compare_AveragePrice_Intent"
+        },   {
+            "intentVersion": "$LATEST", 
+            "intentName": "Hello_Intent"
+        }, 
+        
+        {
             "intentVersion": "$LATEST", 
             "intentName": "Refresh_Intent"
-
+        }, 
+        {
+            "intentVersion": "$LATEST", 
+            "intentName": "Goodbye_Intent"
         }
+        
 
         
           ], 
@@ -46,21 +65,7 @@
       {
         "content": "I don't understand your question! Can you rephrase?",
         "contentType": "PlainText"
-      },
-      {
-        "content": "I didn't get you! Please ask differently or change question.",
-        "contentType": "PlainText"
-      },
-      {
-        "content": "I'm not equipped to answer that question. I am sorry. Ask something else, please.",
-        "contentType": "PlainText"
-      },
-
-      {
-        "content": "I cannot tell you that at present, want to try some other question?",
-        "contentType": "PlainText"
       }
-           
     ]
   },
   "idleSessionTTLInSeconds": 300,
