@@ -36,6 +36,7 @@
                     ]
                 }, 
                 "priority": 1, 
+                "slotTypeVersion": "$LATEST", 
                 "sampleUtterances": []
             }, 
             {
@@ -52,6 +53,7 @@
                     ]
                 }, 
                 "priority": 2, 
+                "slotTypeVersion": "$LATEST",
                 "sampleUtterances": []
             }
         ]

@@ -1,8 +1,6 @@
 {
     "name": "dimensions", 
     "description": "List of dimensions in Investments database",
-    "checksum": "$LATEST",
-    "createVersion": true,
     "valueSelectionStrategy": "TOP_RESOLUTION", 
     "enumerationValues": [
         {

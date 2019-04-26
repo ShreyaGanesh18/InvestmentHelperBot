@@ -38,7 +38,8 @@
                     ]
                 }, 
                 "priority": 1, 
-                "sampleUtterances": []
+                "slotTypeVersion": "$LATEST",
+		"sampleUtterances": []
             }, 
             {
                 "slotType": "company_name", 
@@ -54,7 +55,8 @@
                     ]
                 }, 
                 "priority": 2, 
-                "sampleUtterances": []
+                "slotTypeVersion": "$LATEST",
+		"sampleUtterances": []
             }
         ]
 }
