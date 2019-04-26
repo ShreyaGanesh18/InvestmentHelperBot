@@ -18,7 +18,7 @@
         },
         "sampleUtterances": [
           "From my portfolio, how much is my latest value of {particular_stock}'s stock?",
-          "What is the latest value of my investments with {particular_stock}?"
+          "What is the latest value of my investments with {particular_stock}?",
           "How much is the latest value of my {particular_stock} stocks?"
         ],
     "slots": [

@@ -18,8 +18,8 @@
         },
         "sampleUtterances": [
           "From my portfolio, how much have i invested in {particular_stock} at present?",
-          "What is my current investment amount with {particular_stock}?"
-          "How much have I invested in {particular_stock} according to my investment portfolio at the moment?
+          "What is my current investment amount with {particular_stock}?",
+          "How much have I invested in {particular_stock} according to my investment portfolio at the moment?"
         ],
     "slots": [
         {

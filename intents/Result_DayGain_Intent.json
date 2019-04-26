@@ -18,8 +18,8 @@
         },
         "sampleUtterances": [
           "From my portfolio, how much is my day gain in {particular_stock}?",
-          "What is my day's gain in {particular_stock} stocks?"
-          "How much have I gained today with {particular_stock} according to my investment portfolio?
+          "What is my day's gain in {particular_stock} stocks?",
+          "How much have I gained today with {particular_stock} according to my investment portfolio?"
         ],
     "slots": [
         {
