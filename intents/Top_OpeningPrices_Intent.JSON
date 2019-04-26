@@ -58,7 +58,7 @@
             "priority": 3, 
             "slotTypeVersion": "$LATEST", 
             "sampleUtterances": []
-        }
+        },
         {
             "slotType": "AMAZON.DATE", 
             "name": "particular_date", 

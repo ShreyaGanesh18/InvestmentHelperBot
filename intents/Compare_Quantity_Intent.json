@@ -4,7 +4,7 @@
         "sampleUtterances": [
             "Compare purchase quantity of {one_stock} and {another_stock}",
             "Compare quantities bought of {one_stock} and {another_stock}",
-            "What is difference in purchase quantity of {one_stock} to {another_stock}"
+            "What is difference in purchase quantity of {one_stock} to {another_stock}",
             "What is difference between {one_stock} and {another_stock} in terms of quantity?"
                     ], 
         "conclusionStatement": {
