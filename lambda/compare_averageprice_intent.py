@@ -7,11 +7,11 @@ import ihbot_helpers as helpers
 import ihbot_userexits as userexits
 
 COMPARE_CONFIG = {
-    'stocks':     {'1st': 'one_stock',    '2nd': 'another_stock',    'error': 'Sorry, try "Compare stock 1 versus stock 2'},
-    }
+    'stock':     {'1st': 'one_stock',    '2nd': 'another_stock',    'error': 'Sorry, try "Compare avg price  for stock 1 versus stock 2'}
+}
 
 # SELECT statement for Compare query
-COMPARE_SELECT = " SELECT {}, p.average_price  FROM my_portfolio AS p "
+COMPARE_SELECT = "SELECT {}, p.average_price  FROM my_portfolio p"
 COMPARE_JOIN = " "
 COMPARE_WHERE = " AND LOWER({}) LIKE LOWER('%{}%') "  
 COMPARE_ORDERBY = " ORDER BY average_price DESC "
@@ -20,10 +20,10 @@ logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
 
-def lambda_handler(event, context):
-    logger.debug('<<IHBot>> Lex event info = ' + json.dumps(event))
+def lambda_handler(stock, context):
+    logger.debug('<<IHBot>> Lex stock info = ' + json.dumps(stock))
 
-    session_attributes = event['sessionAttributes']
+    session_attributes = stock['sessionAttributes']
     logger.debug('<<IHBot>> lambda_handler: session_attributes = ' + json.dumps(session_attributes))
 
     config_error = helpers.get_ihbot_config()
@@ -31,13 +31,13 @@ def lambda_handler(event, context):
         return helpers.close(session_attributes, 'Fulfilled',
             {'contentType': 'PlainText', 'content': config_error})   
     else:
-        return compare_intent_handler(event, session_attributes)
+        return compare_avgprice_intent_handler(stock, session_attributes)
 
 
-def compare_intent_handler(intent_request, session_attributes):
+def compare_avgprice_intent_handler(intent_request, session_attributes):
     method_start = time.perf_counter()
     
-    logger.debug('<<IHBot>> compare_intent_handler: session_attributes = ' + json.dumps(session_attributes))
+    logger.debug('<<IHBot>> compare_avgprice_intent_handler: session_attributes = ' + json.dumps(session_attributes))
 
     session_attributes['greetingCount'] = '1'
     session_attributes['resetCount'] = '0'
@@ -76,23 +76,23 @@ def compare_intent_handler(intent_request, session_attributes):
 
     # Build and execute query
     select_clause = COMPARE_SELECT.format(ihbot.DIMENSIONS[slot_values['dimension']]['column'])
-    where_clause = COMPARE_JOIN
+    where_clause = "WHERE"
 
     the_1st_dimension_value = userexits.pre_process_query_value(ihbot.DIMENSIONS[key]['slot'], the_1st_dimension_value)
     the_2nd_dimension_value = userexits.pre_process_query_value(ihbot.DIMENSIONS[key]['slot'], the_2nd_dimension_value)
-    where_clause += "   AND (LOWER(" + ihbot.DIMENSIONS[slot_values['dimension']]['column'] + ") LIKE LOWER('%" + the_1st_dimension_value + "%') OR "
+    where_clause += " (LOWER(" + ihbot.DIMENSIONS[slot_values['dimension']]['column'] + ") LIKE LOWER('%" + the_1st_dimension_value + "%') OR "
     where_clause +=         "LOWER(" + ihbot.DIMENSIONS[slot_values['dimension']]['column'] + ") LIKE LOWER('%" + the_2nd_dimension_value + "%')) " 
 
-    logger.debug('<<IHBot>> compare_intent_request - building WHERE clause') 
+    logger.debug('<<IHBot>> compare_avgprice_intent_request - building WHERE clause') 
     for dimension in ihbot.DIMENSIONS:
         slot_key = ihbot.DIMENSIONS.get(dimension).get('slot')
         if slot_values[slot_key] is not None:
-            logger.debug('<<IHBot>> compare_intent_request - calling userexits.pre_process_query_value(%s, %s)', 
+            logger.debug('<<IHBot>> compare_avgprice_intent_request - calling userexits.pre_process_query_value(%s, %s)', 
                          slot_key, slot_values[slot_key])  
             value = userexits.pre_process_query_value(slot_key, slot_values[slot_key])
             where_clause += COMPARE_WHERE.format(ihbot.DIMENSIONS.get(dimension).get('column'), value)
 
-    order_by_group_by = COMPARE_ORDERBY.format(ihbot.DIMENSIONS[slot_values['dimension']]['column'])
+    order_by_group_by = COMPARE_ORDERBY
 
     query_string = select_clause + where_clause + order_by_group_by
     
@@ -108,9 +108,10 @@ def compare_intent_handler(intent_request, session_attributes):
     counter = 0
     for dimension in ihbot.DIMENSIONS:
         slot_key = ihbot.DIMENSIONS[dimension].get('slot')
-        logger.debug('<<IHBot>> pre compareavgprice_formatter[%s] = %s', slot_key, slot_values.get(slot_key))
+        logger.debug('<<IHBot>> pre compare_avgprice_formatter[%s] = %s', slot_key, slot_values.get(slot_key))
         if slot_values.get(slot_key) is not None:
-            
+            # the DIMENSION_FORMATTERS perform a post-process function and then format the output
+            # Example:  {... 'venue_state': {'format': ' in the state of {}',  'function': get_state_name}, ...}
             if userexits.DIMENSION_FORMATTERS.get(slot_key) is not None:
                 output_text = userexits.DIMENSION_FORMATTERS[slot_key]['function'](slot_values.get(slot_key))
                 if counter == 0:
@@ -118,7 +119,7 @@ def compare_intent_handler(intent_request, session_attributes):
                 else:
                     response_string += ', ' + userexits.DIMENSION_FORMATTERS[slot_key]['format'].lower().format(output_text)
                 counter += 1
-                logger.debug('<<IHBot>> compareavgprice_formatter[%s] = %s', slot_key, output_text)
+                logger.debug('<<IHBot>> compare_avgprice_formatter[%s] = %s', slot_key, output_text)
 
     if (result_count == 0):
         if len(response_string) > 0:
@@ -144,7 +145,7 @@ def compare_intent_handler(intent_request, session_attributes):
                              response['ResultSet']['Rows'][2]['Data'][0]['VarCharValue'],  
                              float(response['ResultSet']['Rows'][2]['Data'][1]['VarCharValue']) ] } )
 
-        logger.debug('<<IHBot>> compare_intent_handler - result_set = %s', result_set) 
+        logger.debug('<<IHBot>> compare_avgprice_intent_handler - result_set = %s', result_set) 
 
         the_1st_dimension_string = result_set[the_1st_dimension_value.lower()][0]
         the_1st_dimension_string = userexits.post_process_dimension_output(key, the_1st_dimension_string)
@@ -152,9 +153,9 @@ def compare_intent_handler(intent_request, session_attributes):
         the_2nd_dimension_string = userexits.post_process_dimension_output(key, the_2nd_dimension_string)
 
         if len(response_string) == 0:
-            response_string = 'Average Price  for ' + the_1st_dimension_string + ' were '
+            response_string = 'Average price for ' + the_1st_dimension_string + ' were '
         else:
-            response_string += ', Average price for ' + the_1st_dimension_string + ' were '
+            response_string += ', average price for ' + the_1st_dimension_string + ' were '
 
         the_1st_amount = result_set[the_1st_dimension_value.lower()][1]
         the_2nd_amount = result_set[the_2nd_dimension_value.lower()][1]
