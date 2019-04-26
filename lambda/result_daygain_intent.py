@@ -9,7 +9,7 @@ import ihbot_userexits as userexits
 COUNT_SELECT = "SELECT day_gain FROM my_portfolio "
 COUNT_JOIN = "  "
 COUNT_WHERE = " AND LOWER({}) LIKE LOWER('%{}%') "   
-COUNT_PHRASE = 'Day's gain'
+COUNT_PHRASE = 'Days gain'
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)

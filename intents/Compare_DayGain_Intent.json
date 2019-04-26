@@ -1,6 +1,6 @@
 {
         "name": "Compare_DayGain_Intent",
-        "description": "Recursively query the dataset",
+        "description": "Compare_DayGain_Intent",
         "sampleUtterances": [
             "Compare day gains of {one_stock} with respect to {another_stock}",
             "Compare this day's gain of {one_stock} with respect to {another_stock}",
