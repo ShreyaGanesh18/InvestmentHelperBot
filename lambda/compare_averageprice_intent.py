@@ -7,7 +7,7 @@ import ihbot_helpers as helpers
 import ihbot_userexits as userexits
 
 COMPARE_CONFIG = {
-    'stock':     {'1st': 'one_stock',    '2nd': 'another_stock',    'error': 'Sorry, try "Compare avg price  for stock 1 versus stock 2'}
+    'stocks':     {'1st': 'one_stock',    '2nd': 'another_stock',    'error': 'Sorry, try "Compare avg price  for stock 1 versus stock 2'}
 }
 
 # SELECT statement for Compare query
