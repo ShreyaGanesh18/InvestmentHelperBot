@@ -45,7 +45,7 @@ def hello_intent_handler(intent_request, session_attributes):
     elif askCount == 3: response_string = "I'm listening"
     elif askCount == 4: response_string = "Yes?"
     elif askCount == 5: response_string = "Really?"
-    else: response_string = 'Ok'
+    else: response_string = 'Ok '
 
     return helpers.close(session_attributes, 'Fulfilled', {'contentType': 'PlainText','content': response_string})   
 
