@@ -159,7 +159,7 @@ def top_intent_handler(intent_request, session_attributes):
     # add the English versions of the WHERE clauses
     for dimension in ihbot.DIMENSIONS:
         slot_key = ihbot.DIMENSIONS[dimension].get('slot')
-        logger.debug('<<IHBot>> pre top5_formatter[%s] = %s', slot_key, slot_values.get(slot_key))
+        logger.debug('<<IHBot>> pre top5_lvformatter[%s] = %s', slot_key, slot_values.get(slot_key))
         if slot_values.get(slot_key) is not None:
             # the DIMENSION_FORMATTERS perform a post-process functions and then format the output
             # Example:  {... 'venue_state': {'format': ' in the state of {}',  'function': get_state_name}, ...}
@@ -167,7 +167,7 @@ def top_intent_handler(intent_request, session_attributes):
                 output_text = userexits.DIMENSION_FORMATTERS[slot_key]['function'](slot_values.get(slot_key))
                 output_text = userexits.DIMENSION_FORMATTERS[slot_key]['format'].lower().format(output_text)
                 response_string += ' ' + output_text
-                logger.debug('<<IHBot>> top5_formatter[%s] = %s', slot_key, output_text)
+                logger.debug('<<IHBot>> top5_lvformatter[%s] = %s', slot_key, output_text)
 
     if result_count == 0:
         pass

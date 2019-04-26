@@ -87,14 +87,14 @@ def count_intent_handler(intent_request, session_attributes):
     # add the English versions of the WHERE clauses
     for dimension in ihbot.DIMENSIONS:
         slot_key = ihbot.DIMENSIONS[dimension].get('slot')
-        logger.debug('<<IHBot>> pre top5_formatter[%s] = %s', slot_key, slot_values.get(slot_key))
+        logger.debug('<<IHBot>> pre top5_lvrformatter[%s] = %s', slot_key, slot_values.get(slot_key))
         if slot_values.get(slot_key) is not None:
             # the DIMENSION_FORMATTERS perform a post-process functions and then format the output
             # Example:  {... 'venue_state': {'format': ' in the state of {}',  'function': get_state_name}, ...}
             if userexits.DIMENSION_FORMATTERS.get(slot_key) is not None:
                 output_text = userexits.DIMENSION_FORMATTERS[slot_key]['function'](slot_values.get(slot_key))
                 response_string += ' ' + userexits.DIMENSION_FORMATTERS[slot_key]['format'].lower().format(output_text)
-                logger.debug('<<IHBot>> dimension_formatter[%s] = %s', slot_key, output_text)
+                logger.debug('<<IHBot>> dimension_lvrformatter[%s] = %s', slot_key, output_text)
 
     response_string += '.'
 

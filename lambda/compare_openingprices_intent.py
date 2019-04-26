@@ -108,7 +108,7 @@ def compare_intent_handler(intent_request, session_attributes):
     counter = 0
     for dimension in ihbot.DIMENSIONS:
         slot_key = ihbot.DIMENSIONS[dimension].get('slot')
-        logger.debug('<<IHBot>> pre compare_sale_formatter[%s] = %s', slot_key, slot_values.get(slot_key))
+        logger.debug('<<IHBot>> pre compare_op_formatter[%s] = %s', slot_key, slot_values.get(slot_key))
         if slot_values.get(slot_key) is not None:
             # the DIMENSION_FORMATTERS perform a post-process function and then format the output
             # Example:  {... 'venue_state': {'format': ' in the state of {}',  'function': get_state_name}, ...}
@@ -119,7 +119,7 @@ def compare_intent_handler(intent_request, session_attributes):
                 else:
                     response_string += ', ' + userexits.DIMENSION_FORMATTERS[slot_key]['format'].lower().format(output_text)
                 counter += 1
-                logger.debug('<<IHBot>> compare_sales_formatter[%s] = %s', slot_key, output_text)
+                logger.debug('<<IHBot>> compare_op_formatter[%s] = %s', slot_key, output_text)
 
     if (result_count == 0):
         if len(response_string) > 0:
