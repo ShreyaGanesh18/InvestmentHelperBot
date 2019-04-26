@@ -12,9 +12,9 @@ COMPARE_CONFIG = {
 
 # SELECT statement for Compare query
 COMPARE_SELECT = "SELECT {}, p.average_price  FROM my_portfolio p"
-COMPARE_JOIN = " "
+COMPARE_JOIN = " WHERE "
 COMPARE_WHERE = " AND LOWER({}) LIKE LOWER('%{}%') "  
-COMPARE_ORDERBY = " ORDER BY average_price DESC "
+COMPARE_ORDERBY = " GROUP BY {} ORDER BY average_price DESC "
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
@@ -76,7 +76,7 @@ def compare_avgprice_intent_handler(intent_request, session_attributes):
 
     # Build and execute query
     select_clause = COMPARE_SELECT.format(ihbot.DIMENSIONS[slot_values['dimension']]['column'])
-    where_clause = "WHERE"
+    where_clause = COMPARE_JOIN
 
     the_1st_dimension_value = userexits.pre_process_query_value(ihbot.DIMENSIONS[key]['slot'], the_1st_dimension_value)
     the_2nd_dimension_value = userexits.pre_process_query_value(ihbot.DIMENSIONS[key]['slot'], the_2nd_dimension_value)
@@ -92,7 +92,7 @@ def compare_avgprice_intent_handler(intent_request, session_attributes):
             value = userexits.pre_process_query_value(slot_key, slot_values[slot_key])
             where_clause += COMPARE_WHERE.format(ihbot.DIMENSIONS.get(dimension).get('column'), value)
 
-    order_by_group_by = COMPARE_ORDERBY
+    order_by_group_by = COMPARE_ORDERBY.format(bibot.DIMENSIONS[slot_values['dimension']]['column'])
 
     query_string = select_clause + where_clause + order_by_group_by
     
