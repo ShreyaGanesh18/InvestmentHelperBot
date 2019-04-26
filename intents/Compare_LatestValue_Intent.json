@@ -5,7 +5,7 @@
             "Compare latest values of {one_stock} versus {another_stock}",
             "Compare latest values of {one_stock} and {another_stock}",
             "What is difference in the latest value of {one_stock} with respect to {another_stock}",
-            "How is {one_stock} different from {another_stock} in terms of latest value?"
+            "How is {one_stock} different from {another_stock} in terms of latest value"
 
                     ], 
         "conclusionStatement": {

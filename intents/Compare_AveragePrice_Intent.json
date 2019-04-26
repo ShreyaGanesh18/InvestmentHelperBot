@@ -4,7 +4,7 @@
         "sampleUtterances": [
             "Compare average stock prices  so far for {one_stock} with respect to {another_stock}",
             "Compare average stock price of {one_stock} with respect to {another_stock}",
-            "What is difference between {one_stock} to {another_stock}in terms of average stock price?"
+            "What is difference between {one_stock} to {another_stock} in terms of average stock price"
                     ], 
         "conclusionStatement": {
           "messages": [

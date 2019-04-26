@@ -40,7 +40,7 @@ aws athena start-query-execution \
     --result-configuration "OutputLocation=$ATHENA_BUCKET/output/" \
     >/dev/null
 # Create INVESTMENT company table in Athena
-echo "Creating my_portfolio table..."
+echo "Creating COMPANY table..."
 aws athena start-query-execution \
     --query-string "create external table company (company_name STRING)   ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/company';" \
     --query-execution-context "Database=$ATHENA_DB" \
@@ -50,7 +50,7 @@ aws athena start-query-execution \
 # Create INVESTMENT date table in Athena
 echo "Creating transaction_history table..."
 aws athena start-query-execution \
-    --query-string "create external table transaction_history (transaction_date DATE, company_name STRING, transaction_type STRING, quantity INT, price DECIMAL(10,4), value INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/transaction_history';" \
+    --query-string "create external table transaction_history (transaction_date DATE, company_name STRING, transaction_type STRING, quantity INT, price INT, value INT) ROW FORMAT DELIMITED FIELDS TERMINATED BY '|' LOCATION '$ATHENA_BUCKET/transaction_history';" \
     --query-execution-context "Database=$ATHENA_DB" \
     --result-configuration "OutputLocation=$ATHENA_BUCKET/output/" \
     >/dev/null

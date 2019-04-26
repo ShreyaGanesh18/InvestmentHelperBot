@@ -4,7 +4,7 @@
         "sampleUtterances": [
             "Compare day gains of {one_stock} with respect to {another_stock}",
             "Compare this day's gain of {one_stock} with respect to {another_stock}",
-            "What is difference between {one_stock} to {another_stock} in terms of today's gain?"
+            "What is difference between {one_stock} to {another_stock} in terms of today's gain"
                     ], 
         "conclusionStatement": {
           "messages": [

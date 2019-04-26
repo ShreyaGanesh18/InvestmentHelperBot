@@ -4,7 +4,7 @@
         "sampleUtterances": [
             "Compare my current stock prices for {one_stock} and {another_stock}",
             "Compare my current stock prices {one_stock} and {another_stock}",
-            "What is difference in {one_stock} to {another_stock} with respect to current stock price?"
+            "What is difference in {one_stock} to {another_stock} with respect to current stock price"
                     ], 
         "conclusionStatement": {
           "messages": [

@@ -7,13 +7,14 @@ import ihbot_helpers as helpers
 import ihbot_userexits as userexits
 
 COMPARE_CONFIG = {
-    'stocks':     {'1st': 'one_stock',    '2nd': 'another_stock',    'error': 'Sorry, try "Compare stock 1 versus stock2 2'},
+    'stocks':     {'1st': 'one_stock',    '2nd': 'another_stock',    'error': 'Sorry, try "Compare stock 1 versus stock 2'},
     }
 
 # SELECT statement for Compare query
-COMPARE_SELECT = "SELECT {}, (p.average_price) avgprice  FROM my_portfolio p"
+COMPARE_SELECT = " SELECT {}, p.average_price  FROM my_portfolio AS p "
+COMPARE_JOIN = " "
 COMPARE_WHERE = " AND LOWER({}) LIKE LOWER('%{}%') "  
-COMPARE_ORDERBY = " ORDER BY avgprice DESC "
+COMPARE_ORDERBY = " ORDER BY average_price DESC "
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
@@ -75,7 +76,7 @@ def compare_intent_handler(intent_request, session_attributes):
 
     # Build and execute query
     select_clause = COMPARE_SELECT.format(ihbot.DIMENSIONS[slot_values['dimension']]['column'])
-    where_clause = ""
+    where_clause = COMPARE_JOIN
 
     the_1st_dimension_value = userexits.pre_process_query_value(ihbot.DIMENSIONS[key]['slot'], the_1st_dimension_value)
     the_2nd_dimension_value = userexits.pre_process_query_value(ihbot.DIMENSIONS[key]['slot'], the_2nd_dimension_value)
@@ -109,7 +110,6 @@ def compare_intent_handler(intent_request, session_attributes):
         slot_key = ihbot.DIMENSIONS[dimension].get('slot')
         logger.debug('<<IHBot>> pre compareavgprice_formatter[%s] = %s', slot_key, slot_values.get(slot_key))
         if slot_values.get(slot_key) is not None:
-            # the DIMENSION_FORMATTERS perform a post-process function and then format the output
             
             if userexits.DIMENSION_FORMATTERS.get(slot_key) is not None:
                 output_text = userexits.DIMENSION_FORMATTERS[slot_key]['function'](slot_values.get(slot_key))
