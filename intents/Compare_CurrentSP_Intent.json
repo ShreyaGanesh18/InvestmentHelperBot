@@ -23,7 +23,7 @@
         },
         "slots": [
             {
-                "slotType": "company_name", 
+                "slotType": "stock_name", 
                 "name": "one_stock", 
                 "slotConstraint": "Optional", 
                 "valueElicitationPrompt": {
@@ -40,7 +40,7 @@
 		"sampleUtterances": []
             }, 
             {
-                "slotType": "company_name", 
+                "slotType": "stock_name", 
                 "name": "another_stock", 
                 "slotConstraint": "Optional", 
                 "valueElicitationPrompt": {

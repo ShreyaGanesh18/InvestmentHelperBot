@@ -4,14 +4,6 @@
     "valueSelectionStrategy": "TOP_RESOLUTION", 
     "enumerationValues": [
         {
-            
-            "synonyms": [
-                
-                "firms"
-            ], 
-            "value": "companies"
-        }, 
-        {
             "synonyms": [
                 "securities"
             ], 
